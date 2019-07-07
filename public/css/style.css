@@ -6,7 +6,6 @@ body {
   min-height: 100vh;
   flex-direction: column;
 }
-
 main {
   flex: 1 0 auto;
 }
@@ -17,10 +16,20 @@ main {
 */
 input {
   background-color:#4fc3f7 !important;
-  /* background-color: yellow !important; */
 }
-
 input:focus {
   background-color: #e1f5fe !important;
-  /* background-color: orange !important; */
+}
+
+/*
+
+*/
+.nav-wrapper {
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
+
+label {
+  padding-left: 1vw;
+  padding-right: 1vw;
 }
