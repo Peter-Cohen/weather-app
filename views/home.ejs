@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<% include partials/head.ejs %>
+
+<body>
+  <% include partials/header.ejs %>
+  
+  <main class="container light-blue lighten-4">
+    <h3>Hoi!</h3>
+    <p>Please enter a location:</p>
+    
+    <div class="row">
+      <div class="<%# nav-wrapper %> col s12 l6">
+        <form>
+          <div class="input-field">
+            <input id="search" type="search" required>
+            <label class="label-icon" for="search"><%# <i class="material-icons">search</i> %></label>
+            <%# <i class="material-icons">close</i> %>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class = "col s12 l6">
+        <div class = "card medium light-blue lighten-3">      
+          <div class = "card-content">
+            <span class="card-title">Current</span>
+            <p>Adipisicing deserunt incididunt amet dolor nulla exercitation duis sint tempor non fugiat veniam.</p>
+          </div>    
+        </div>
+      </div>
+
+      <div class = "col s12 l6">
+        <div class = "card medium light-blue lighten-3">      
+          <div class = "card-content">
+            <span class="card-title">Forecast</span>
+            <p>Irure in laboris sunt ipsum esse eu occaecat elit ipsum laborum eu velit qui. Reprehenderit consectetur minim excepteur dolor sint nostrud ex velit nostrud dolor. Laborum ad ea aute exercitation. Laboris labore consequat velit eu velit.</p>
+          </div>    
+        </div>
+      </div>
+      
+      <%# insert another row here? %>
+      <div class = "col s12 l6">
+        <div class = "card medium light-blue lighten-5 hide-on-med-and-down">      
+          <div class = "card-content">
+            <span class="card-title">Map</span>
+            <p>This card will be hidden on medium and small screens.</p>
+          </div>    
+        </div>
+      </div>    
+      
+    </div>
+
+  </main>
+
+  <% include partials/footer.ejs %>
+  <% include partials/scripts.ejs %>
+</body>
+</html>
