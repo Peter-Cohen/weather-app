@@ -17,8 +17,10 @@ main {
 */
 input {
   background-color:#4fc3f7 !important;
+  /* background-color: yellow !important; */
 }
 
 input:focus {
-  background-color: #4fc3f7 !important;
+  background-color: #e1f5fe !important;
+  /* background-color: orange !important; */
 }
