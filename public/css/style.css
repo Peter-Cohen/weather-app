@@ -22,7 +22,7 @@ input:focus {
 }
 
 /*
-
+  Create some spacing
 */
 .nav-wrapper {
   padding-left: 1vw;
@@ -32,4 +32,31 @@ input:focus {
 label {
   padding-left: 1vw;
   padding-right: 1vw;
+}
+
+footer {
+  padding-left: 1vw;
+}
+
+/*
+  Make button same height as the input field
+*/
+.btn {
+  height: 45px !important;
+  padding: 0 8px;
+}
+
+button {
+  margin-left: 2px;
+}
+
+/*
+  Make icon on submit button symmetric
+*/
+i.right {
+  margin-left: 0 !important;
+}
+
+i {
+  vertical-align: middle;
 }
