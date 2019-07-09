@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const axios = require('axios');
-
-const maps_key = process.env.MAPS_KEY;
-const weather_key = process.env.WEATHER_KEY;
+// const axios = require('axios');
+const geoLocation = require('../controllers/locationController');
+const weather = require('../controllers/weatherController');
+// const maps_key = process.env.MAPS_KEY;
+// const weather_key = process.env.WEATHER_KEY;
 
 
 router.get('/', (req, res) => {
@@ -13,9 +14,22 @@ router.get('/', (req, res) => {
 
 
 router.post('/', (req, res) => {
-  console.log(req.body.search);
+  // console.log(req.body.search);
+  const obj = geoLocation.geoLocation(req.body.search)
+    .then((response) => {
+      // console.log('in routes ' + JSON.stringify(response));
+      return response;
+    })
+    .then((response) => {
+      // console.log(response);
+      return weather.weather(response);     
+    })
+    .then(response => console.log(response))
+    .catch(e => console.log("oh-oh" + e));
 
-  const encodedAddress = encodeURIComponent(req.body.search);
+
+  // The following code works, don't touch until replaced:
+  /* const encodedAddress = encodeURIComponent(req.body.search);
   const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${maps_key}`;
 
   axios.get(url)
@@ -40,7 +54,8 @@ router.post('/', (req, res) => {
       console.log(`Humidity: ${response.data.currently.humidity * 100}%`);
       console.log(`UV Index: ${response.data.currently.uvIndex}`);
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log(err)); */
+  /////////////////////////////////////////////////////////////////
 
   res.render('home.ejs');
 });
