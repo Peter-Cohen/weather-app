@@ -8,8 +8,14 @@ app.set('view engine', 'ejs');
 
 
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
+  res.render('home.ejs');
+});
+
+app.post('/', (req, res) => {
+  console.log(req.body.search);
   res.render('home.ejs');
 });
 
