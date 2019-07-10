@@ -21,10 +21,12 @@ router.post('/', (req, res) => {
     .then((response) => {
       console.log(formattedAddress);
       console.log(response);
+      res.render('home.ejs', { results: response,
+      blah: "bleh", });
     })
     .catch(e => console.log("oh-oh" + e));
 
-  res.render('home.ejs');
+  // res.render('home.ejs');
 });
 
 

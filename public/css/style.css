@@ -37,7 +37,10 @@ label {
 
 footer {
   padding-left: 1vw;
+  padding-right: 1vw;
+
 }
+
 
 /*
   Make button same height as the input field
@@ -60,4 +63,22 @@ i.right {
 
 i {
   vertical-align: middle;
+}
+
+
+#location-box .card {
+  height: 4rem;
+  
+}
+
+#location-box{
+  margin-bottom: 0;
+}
+
+
+.card {
+  margin: 0 0 1rem 0;
+}
+.row {
+  margin-bottom: 0;
 }
