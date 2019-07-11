@@ -62,10 +62,10 @@
             
             <% if (typeof results !== 'undefined') { %>
               <p><%= results.summary %></p>
-              <%= results.currentTemp %><br>
-              <%= results.feelsLike %><br>
-              <%= results.humidity %><br>
-              <%= results.uv %><br>
+              <%= results.currently.currentTemp %><br>
+              <%= results.currently.feelsLike %><br>
+              <%= results.currently.humidity %><br>
+              <%= results.currently.uv %><br>
             <% } %>
            
           </div>    
