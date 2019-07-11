@@ -61,7 +61,8 @@
             <span class="card-title">Current</span>
             
             <% if (typeof results !== 'undefined') { %>
-              <p><%= results.summary %></p>
+              <p><%= results.currently.summary %></p>
+              <%= results.currently.time %><br>
               <%= results.currently.currentTemp %><br>
               <%= results.currently.feelsLike %><br>
               <%= results.currently.humidity %><br>
