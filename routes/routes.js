@@ -32,8 +32,6 @@ router.post('/', (req, res) => {
         status: `Sorry, can not find ${req.body.search}`,
       });
     });
-
-  // res.render('home.ejs');
 });
 
 
