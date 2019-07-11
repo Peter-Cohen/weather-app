@@ -14,4 +14,5 @@ const geoLocation = (rawLocation) => {
     }));
 };
 
+
 module.exports.geoLocation = geoLocation;

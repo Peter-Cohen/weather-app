@@ -1,8 +1,7 @@
 const axios = require('axios');
-const { formatTime, convertToLocal } = require('../helpers/timeHelper');
+const { formatTime } = require('../helpers/timeHelper');
 
 const weatherKey = process.env.WEATHER_KEY;
-
 
 const weather = (coord) => {
   const lat = coord.latitude;
@@ -22,5 +21,6 @@ const weather = (coord) => {
     }))
     .catch(error => console.log(error));
 };
+
 
 module.exports.weather = weather;
