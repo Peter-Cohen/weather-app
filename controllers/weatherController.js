@@ -11,8 +11,8 @@ const weather = (coord) => {
   return axios.get(weatherUrl)
     .then(response => ({
       currently: {
-        time: formatTime(convertToLocal(response.data.timezone,
-          new Date(response.data.currently.time * 1000))),
+        time: formatTime(response.data.timezone,
+          new Date(response.data.currently.time * 1000)),
         summary: response.data.currently.summary,
         currentTemp: response.data.currently.temperature,
         feelsLike: response.data.currently.apparentTemperature,
