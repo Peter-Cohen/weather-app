@@ -54,8 +54,12 @@
     <div class="row">
       <div class="col s12" id="location-box">
         <div class = "card medium light-blue lighten-3">
-        <div class="card-content">
-          <p>Placeholder for formatted address</p>
+          <div class="card-content">
+            <p>
+              <% if (typeof status != 'undefined') { %>
+                <%= status %>
+              <% } %>
+            </p>
           </div>    
         </div>
       </div>
@@ -69,11 +73,12 @@
             <span class="card-title">Current</span>
             <p>Adipisicing deserunt incididunt amet dolor nulla exercitation duis sint tempor non fugiat veniam.</p>
             <p>
-              <%= results.currentTemp %><br>
-              <%= results.feelsLike %><br>
-              <%= results.humidity %><br>
-              <%= results.uv %><br>
-              <%= blah %><br>
+              <% if (typeof results === 'object' && results ) { %>
+                <%= results.currentTemp %><br>
+                <%= results.feelsLike %><br>
+                <%= results.humidity %><br>
+                <%= results.uv %><br>
+              <% } %>
             </p>
           </div>    
         </div>

@@ -21,10 +21,17 @@ router.post('/', (req, res) => {
     .then((response) => {
       console.log(formattedAddress);
       console.log(response);
-      res.render('home.ejs', { results: response,
-      blah: "bleh", });
+      res.render('home.ejs', {
+        results: response,
+        status: `Showing results for ${formattedAddress}`,
+      });
     })
-    .catch(e => console.log("oh-oh" + e));
+    .catch((err) => {
+      console.log('oh-oh' + err)
+      res.render('home.ejs', {
+        status: `Sorry, can not find ${req.body.search}`,
+      });
+    });
 
   // res.render('home.ejs');
 });
