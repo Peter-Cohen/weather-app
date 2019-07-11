@@ -42,7 +42,7 @@
     <div class="row">
       <div class="col s12" id="location-box">
         <div class = "card medium light-blue lighten-3">
-          <div class="card-content">
+          <div class="card-content valign-wrapper">
             <p>
               <% if (typeof status != 'undefined') { %>
                 <%= status %>
@@ -63,12 +63,29 @@
               Current, <%= results.currently.time %>:
               </span>
                         
-              <p><%= results.currently.summary %></p>
+              <br><p><%= results.currently.summary %></p><br>
               
-              <%= results.currently.currentTemp %><br>
-              <%= results.currently.feelsLike %><br>
-              <%= results.currently.humidity %><br>
-              <%= results.currently.uv %><br>
+
+              <table>
+                <tbody>
+                  <tr>
+                    <td>Current temperature</td>
+                    <td><%= results.currently.currentTemp %> &#8451;</td>
+                  </tr>
+                  <tr>
+                    <td>Feels like</td>
+                    <td><%= results.currently.feelsLike %> &#8451;</td>
+                  </tr>
+                  <tr>
+                    <td>Humidity</td>
+                    <td><%= results.currently.humidity %> %</td>
+                  </tr>
+                  <tr>
+                    <td>UV</td>
+                    <td><%= results.currently.uv %></td>
+                  </tr>
+                </tbody>
+              </table>
             <% } %>
            
           </div>    

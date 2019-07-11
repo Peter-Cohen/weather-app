@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
+    "date-fns-timezone": "^0.1.4",
     "ejs": "^2.6.2",
     "express": "^4.17.1",
     "timezone-support": "^2.0.2"
