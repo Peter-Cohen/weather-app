@@ -71,15 +71,15 @@
         <div class = "card medium light-blue lighten-3">      
           <div class = "card-content">
             <span class="card-title">Current</span>
-            <p>Adipisicing deserunt incididunt amet dolor nulla exercitation duis sint tempor non fugiat veniam.</p>
-            <p>
-              <% if (typeof results === 'object' && results ) { %>
-                <%= results.currentTemp %><br>
-                <%= results.feelsLike %><br>
-                <%= results.humidity %><br>
-                <%= results.uv %><br>
-              <% } %>
-            </p>
+            
+            <% if (typeof results !== 'undefined') { %>
+              <p><%= results.summary %></p>
+              <%= results.currentTemp %><br>
+              <%= results.feelsLike %><br>
+              <%= results.humidity %><br>
+              <%= results.uv %><br>
+            <% } %>
+           
           </div>    
         </div>
       </div>

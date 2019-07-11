@@ -8,6 +8,7 @@ const weather = (coord) => {
   const weatherUrl = `https://api.forecast.io/forecast/${weatherKey}/${lat},${lng}?units=ca`;
   return axios.get(weatherUrl)
     .then(response => ({
+      summary: response.data.currently.summary,
       currentTemp: response.data.currently.temperature,
       feelsLike: response.data.currently.apparentTemperature,
       humidity: response.data.currently.humidity * 100,
