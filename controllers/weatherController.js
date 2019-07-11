@@ -1,11 +1,7 @@
 const axios = require('axios');
+const { formatTime, convertToLocal } = require('../helpers/timeHelper');
 
 const weatherKey = process.env.WEATHER_KEY;
-
-formatTime = (timeStamp) => {
-  const formattedTime = timeStamp;
-  return formattedTime;
-}
 
 
 const weather = (coord) => {
@@ -15,7 +11,8 @@ const weather = (coord) => {
   return axios.get(weatherUrl)
     .then(response => ({
       currently: {
-        time: new Date(response.data.currently.time * 1000),
+        time: formatTime(convertToLocal(response.data.timezone,
+          new Date(response.data.currently.time * 1000))),
         summary: response.data.currently.summary,
         currentTemp: response.data.currently.temperature,
         feelsLike: response.data.currently.apparentTemperature,

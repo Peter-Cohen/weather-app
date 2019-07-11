@@ -58,11 +58,13 @@
       <div class = "col s12 l6">
         <div class = "card medium light-blue lighten-3">      
           <div class = "card-content">
-            <span class="card-title">Current</span>
-            
             <% if (typeof results !== 'undefined') { %>
+              <span class="card-title">
+              Current, <%= results.currently.time %>:
+              </span>
+                        
               <p><%= results.currently.summary %></p>
-              <%= results.currently.time %><br>
+              
               <%= results.currently.currentTemp %><br>
               <%= results.currently.feelsLike %><br>
               <%= results.currently.humidity %><br>
