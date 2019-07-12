@@ -56,11 +56,11 @@
     <div class="row">
     
       <div class = "col s12 l6">
-        <div class = "card medium light-blue lighten-3">      
+        <div class = "card large light-blue lighten-3">      
           <div class = "card-content">
             <% if (typeof results !== 'undefined') { %>
               <span class="card-title">
-              Current, <%= results.currently.time %>:
+              Current, <%= results.currently.time %>
               </span>
                         
               <br><p><%= results.currently.summary %></p><br>
@@ -84,6 +84,10 @@
                     <td>UV</td>
                     <td><%= results.currently.uv %></td>
                   </tr>
+                  <tr>
+                    <td>Pressure</td>
+                    <td>TODO</td>
+                  </tr>
                 </tbody>
               </table>
             <% } %>
@@ -93,20 +97,133 @@
       </div>
 
       <div class = "col s12 l6">
-        <div class = "card medium light-blue lighten-3">      
+        <div class = "card large light-blue lighten-3">      
           <div class = "card-content">
-            <span class="card-title">Forecast (TODO)</span>
-            <p>Irure in laboris sunt ipsum esse eu occaecat elit ipsum laborum eu velit qui. Reprehenderit consectetur minim excepteur dolor sint nostrud ex velit nostrud dolor. Laborum ad ea aute exercitation. Laboris labore consequat velit eu velit.</p>
+            <span class="card-title">Next 24 hours</span>
+            <br>
+            <table>
+              <tr>
+                <th></th>
+                <th>+1</th>
+                <th>+3</th>
+                <th>+6</th>
+                <th>+9</th>
+                <th>+12</th>
+                <th>+18</th>
+                <th>+24</th>
+              </tr>
+              <tr>
+                <th>temp min</th>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+              </tr>
+              <tr>
+                <th>temp max</th>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+              </tr>
+              <tr>
+                <th>precip %</th>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+              </tr>
+              <tr>
+                <th>precip mm</th>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+              </tr>
+            </table>
+
+          </div>    
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class = "col s12 l6">
+        <div class = "card large light-blue lighten-3">      
+          <div class = "card-content">
+            <span class="card-title">Next week</span>
+            
+            <table>
+              <tr>
+                <th></th>
+                <th>+1</th>
+                <th>+2</th>
+                <th>+3</th>
+                <th>+4</th>
+                <th>+5</th>
+                <th>+6</th>
+                <th>+7</th>
+              </tr>
+              <tr>
+                <th>temp min</th>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+              </tr>
+              <tr>
+                <th>temp max</th>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+              </tr>
+              <tr>
+                <th>precip %</th>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+              </tr>
+              <tr>
+                <th>precip mm</th>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+                <td>1234</td>
+              </tr>
+            </table>
+
           </div>    
         </div>
       </div>
 
-    </div>
-
-    <div class="row">
-    
       <div class = "col s12 l6">
-        <div class = "card medium light-blue lighten-5 hide-on-med-and-down">
+        <div class = "card large light-blue lighten-5 hide-on-med-and-down">
           <div class = "card-content">
             <span class="card-title">Map</span>
             <p>This card will be hidden on medium and small screens.</p>
