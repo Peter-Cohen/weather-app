@@ -4,7 +4,6 @@ const router = express.Router();
 const geoLocation = require('../controllers/locationController');
 const weather = require('../controllers/weatherController');
 
-
 router.get('/', (req, res) => {
   res.render('home.ejs');
 });
