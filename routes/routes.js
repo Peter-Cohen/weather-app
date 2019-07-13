@@ -1,8 +1,9 @@
 const express = require('express');
+const { geoLocation } = require('../controllers/locationController');
+const { weather } = require('../controllers/weatherController');
+
 const router = express.Router();
 
-const geoLocation = require('../controllers/locationController');
-const weather = require('../controllers/weatherController');
 
 router.get('/', (req, res) => {
   res.render('home.ejs');
@@ -12,10 +13,10 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   let formattedAddress;
 
-  geoLocation.geoLocation(req.body.search)
+  geoLocation(req.body.search)
     .then((response) => {
       formattedAddress = response.address;
-      return weather.weather(response);
+      return weather(response);
     })
     .then((response) => {
       console.log(formattedAddress);

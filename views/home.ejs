@@ -70,11 +70,11 @@
                 <tbody>
                   <tr>
                     <td>Current temperature</td>
-                    <td><%= results.currently.currentTemp %> &#8451;</td>
+                    <td><%= results.currently.temperature %> &#8451;</td>
                   </tr>
                   <tr>
                     <td>Feels like</td>
-                    <td><%= results.currently.feelsLike %> &#8451;</td>
+                    <td><%= results.currently.apparentTemperature %> &#8451;</td>
                   </tr>
                   <tr>
                     <td>Humidity</td>
@@ -82,11 +82,11 @@
                   </tr>
                   <tr>
                     <td>UV</td>
-                    <td><%= results.currently.uv %></td>
+                    <td><%= results.currently.uvIndex %></td>
                   </tr>
                   <tr>
                     <td>Pressure</td>
-                    <td>TODO</td>
+                    <td><%= results.currently.pressure %> mb</td>
                   </tr>
                 </tbody>
               </table>

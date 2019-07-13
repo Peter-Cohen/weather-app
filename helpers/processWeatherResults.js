@@ -8,12 +8,12 @@ const processWeatherResults = (apiResponse) => {
     time: formatTime(apiResponse.data.timezone,
       new Date(apiResponse.data.currently.time * 1000)),
     summary: apiResponse.data.currently.summary,
-    currentTemp: apiResponse.data.currently.temperature,
-    feelsLike: apiResponse.data.currently.apparentTemperature,
+    temperature: apiResponse.data.currently.temperature,
+    apparentTemperature: apiResponse.data.currently.apparentTemperature,
     humidity: apiResponse.data.currently.humidity * 100,
-    uv: apiResponse.data.currently.uvIndex,
+    uvIndex: apiResponse.data.currently.uvIndex,
+    pressure: apiResponse.data.currently.pressure,
   };
-  console.log(currently);
 
   const hourly = [1, 3, 6, 9, 12, 18];
   const hourlyWantedData = ['temperatureHigh', 'temperatureLow'];
