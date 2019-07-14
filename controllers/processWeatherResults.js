@@ -49,9 +49,15 @@ const processWeatherResults = (apiResponse) => {
 
   daily.forEach((e) => {
     dailyResults.data[e] = {};
-    dailyWantedData.forEach((f) => {
-      dailyResults.data[e][f] = apiResponse.data.daily.data[e][f];
-    });
+    // dailyWantedData.forEach((f) => {
+    //   dailyResults.data[e][f] = apiResponse.data.daily.data[e][f];
+    // });
+    dailyResults.data[e]['Temp max'] = `${Math.round(apiResponse.data.daily.data[e].temperatureHigh * 10) / 10}\u2103`;
+    dailyResults.data[e]['Temp min'] = `${Math.round(apiResponse.data.daily.data[e].temperatureLow * 10) / 10}\u2103`;
+
+    dailyResults.data[e]['Precip chance'] = `${Math.round(apiResponse.data.daily.data[e].precipProbability * 100 * 10) / 10}%`;
+    dailyResults.data[e]['Precip mm'] = Math.round(apiResponse.data.daily.data[e].precipIntensity * 10) / 10;
+    dailyResults.data[e]['Precip type'] = apiResponse.data.daily.data[e].precipType || '-';
   });
 
   const obj = {
