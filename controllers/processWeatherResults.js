@@ -1,4 +1,4 @@
-const { formatTime } = require('../helpers/timeHelper');
+const { formatTime } = require('./formatTime');
 
 
 const processWeatherResults = (apiResponse) => {

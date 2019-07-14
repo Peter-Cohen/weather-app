@@ -2,7 +2,7 @@ const axios = require('axios');
 
 const mapsKey = process.env.MAPS_KEY;
 
-const geoLocation = (rawLocation) => {
+const getGeoCodeCoords = (rawLocation) => {
   const encodedAddress = encodeURIComponent(rawLocation);
   const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${mapsKey}`;
 
@@ -15,4 +15,4 @@ const geoLocation = (rawLocation) => {
 };
 
 
-module.exports.geoLocation = geoLocation;
+module.exports.getGeoCodeCoords = getGeoCodeCoords;

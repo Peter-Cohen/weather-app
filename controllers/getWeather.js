@@ -1,10 +1,10 @@
 const axios = require('axios');
-const { processWeatherResults } = require('../helpers/processWeatherResults');
+const { processWeatherResults } = require('./processWeatherResults');
 
 const weatherKey = process.env.WEATHER_KEY;
 
 
-const weather = (coord) => {
+const getWeather = (coord) => {
   const lat = coord.latitude;
   const lng = coord.longtitude;
   const weatherUrl = `https://api.forecast.io/forecast/${weatherKey}/${lat},${lng}?units=ca`;
@@ -14,4 +14,4 @@ const weather = (coord) => {
 };
 
 
-module.exports.weather = weather;
+module.exports.getWeather = getWeather;
