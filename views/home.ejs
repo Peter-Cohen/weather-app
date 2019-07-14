@@ -101,7 +101,7 @@
               <br><p><%= results.hourly.summary %></p><br>
               <table>
                 <tr>
-                  <% Object.keys(results.hourly).forEach(element => { %>
+                  <% Object.keys(results.hourly.data).forEach(element => { %>
                     <%= element %>
                   <% }); %>
                   <th></th>

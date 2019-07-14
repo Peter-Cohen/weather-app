@@ -3,7 +3,7 @@ const { formatTime } = require('./formatTime');
 
 const processWeatherResults = (apiResponse) => {
   
-  // TODO: match keys to API keys, except for 'time'
+  // Currently
   const currently = {
     time: formatTime(apiResponse.data.timezone,
       new Date(apiResponse.data.currently.time * 1000)),
@@ -15,34 +15,45 @@ const processWeatherResults = (apiResponse) => {
     pressure: apiResponse.data.currently.pressure,
   };
 
+
+  // Hourly
   const hourly = [1, 3, 6, 9, 12, 18];
   const hourlyWantedData = ['temperature', 'precipIntensity', 'precipProbability'];
-  const hourlyResults = {};
+  const hourlyResults = {
+    summary: apiResponse.data.hourly.summary,
+    data: {},
+  };
+
   hourly.forEach((e) => {
-    hourlyResults[e] = {};
+    hourlyResults.data[e] = {};
     hourlyWantedData.forEach((f) => {
-      hourlyResults[e][f] = apiResponse.data.hourly.data[e][f];
+      hourlyResults.data[e][f] = apiResponse.data.hourly.data[e][f];
     });
   });
 
+
+  // Daily
   const daily = [1, 2, 3, 4];
   const dailyWantedData = ['summary', 'precipProbability', 'precipIntensity', 'temperatureHigh', 'temperatureLow'];
-  const dailyResults = {};
+  const dailyResults = {
+    summary: apiResponse.data.daily.summary,
+    data: {},
+  };
+
   daily.forEach((e) => {
-    console.log(dailyResults);
-    dailyResults[e] = {};
+    dailyResults.data[e] = {};
     dailyWantedData.forEach((f) => {
-      dailyResults[e][f] = apiResponse.data.daily.data[e][f];
+      dailyResults.data[e][f] = apiResponse.data.daily.data[e][f];
     });
   });
 
   const obj = {
     currently,
-    hourlyResults,
-    dailyResults,
+    hourly: hourlyResults,
+    daily: dailyResults,
   };
 
-  // console.log(obj);
+  console.log(JSON.stringify(obj, null, 2));
 
   return obj;
 
