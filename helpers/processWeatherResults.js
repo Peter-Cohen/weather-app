@@ -16,7 +16,7 @@ const processWeatherResults = (apiResponse) => {
   };
 
   const hourly = [1, 3, 6, 9, 12, 18];
-  const hourlyWantedData = ['temperatureHigh', 'temperatureLow'];
+  const hourlyWantedData = ['temperatureHigh', 'temperatureLow'];   // Wrong datapoints; do not exist in "hourly"
   const hourlyResults = {};
   hourly.forEach((e) => {
     hourlyResults[e] = {};
