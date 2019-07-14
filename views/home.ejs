@@ -100,65 +100,33 @@
               <span class="card-title">Next 24 hours</span>
               <br><p><%= results.hourly.summary %></p><br>
               <table>
+                <!-- Top row of the table -->
                 <tr>
-                  <% Object.keys(results.hourly.data).forEach(element => { %>
-                    <%= element %>
-                  <% }); %>
                   <th></th>
-                  <th>+1</th>
-                  <th>+3</th>
-                  <th>+6</th>
-                  <th>+9</th>
-                  <th>+12</th>
-                  <th>+18</th>
-                  <th>+24</th>
+                  <% Object.keys(results.hourly.data).forEach(element => { %>
+                    <th>+<%= element %></th>
+                  <% }); %>                  
                 </tr>
-                <tr>
-                  <th>temp min</th>
-                  <td>1234</td>
-                  <td>1234</td>
-                  <td>1234</td>
-                  <td>1234</td>
-                  <td>1234</td>
-                  <td>1234</td>
-                  <td>1234</td>
-                </tr>
-                <tr>
-                  <th>temp max</th>
-                  <td>1234</td>
-                  <td>1234</td>
-                  <td>1234</td>
-                  <td>1234</td>
-                  <td>1234</td>
-                  <td>1234</td>
-                  <td>1234</td>
-                </tr>
-                <tr>
-                  <th>precip %</th>
-                  <td>1234</td>
-                  <td>1234</td>
-                  <td>1234</td>
-                  <td>1234</td>
-                  <td>1234</td>
-                  <td>1234</td>
-                  <td>1234</td>
-                </tr>
-                <tr>
-                  <th>precip mm</th>
-                  <td>1234</td>
-                  <td>1234</td>
-                  <td>1234</td>
-                  <td>1234</td>
-                  <td>1234</td>
-                  <td>1234</td>
-                  <td>1234</td>
-                </tr>
-              </table>
 
+                <!-- All other rows -->
+                <% Object.keys(results.hourly.data[1]).forEach(element => { %>
+                    <tr>
+                      <th>
+                        <%= element %>
+                      </th>
+                      <% Object.keys(results.hourly.data).forEach(hour => { %>
+                        <td>
+                          <%= results.hourly.data[hour][element] %>
+                        </td>
+                      <% }); %>
+                    </tr>
+                <% }); %>
+              </table>
             </div>    
           </div>
         </div>
       </div>
+
 
       <div class="row">
 
@@ -167,8 +135,37 @@
           <div class = "card large light-blue lighten-3">      
             <div class = "card-content">
               <span class="card-title">Next week</span>
-              <br><p><%= results.daily.summary %> Do non occaecat incididunt nisi cillum sit cillum anim nostrud deserunt elit sunt officia.</p><br>
-              
+              <br><p><%= results.daily.summary %></p><br>
+              <table>
+                <!-- Top row of the table -->
+                <tr>
+                  <th></th>
+                  <% Object.keys(results.daily.data).forEach(element => { %>
+                    <th>+<%= element %></th>
+                  <% }); %>                  
+                </tr>
+
+                <!-- All other rows -->
+                <% Object.keys(results.daily.data[1]).forEach(element => { %>
+                    <tr>
+                      <th>
+                        <%= element %>
+                      </th>
+                      <% Object.keys(results.daily.data).forEach(day => { %>
+                        <td>
+                          <%= results.daily.data[day][element] %>
+                        </td>
+                      <% }); %>
+                    </tr>
+                <% }); %>
+              </table>
+      
+      
+
+
+
+
+              <!--
               <table>
                 <tr>
                   <th></th>
@@ -221,6 +218,7 @@
                   <td>1234</td>
                 </tr>
               </table>
+              -->
 
             </div>    
           </div>

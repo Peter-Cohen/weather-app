@@ -17,7 +17,7 @@ const processWeatherResults = (apiResponse) => {
 
 
   // Hourly
-  const hourly = [1, 3, 6, 9, 12, 18];
+  const hourly = [1, 3, 6, 9, 12, 18, 24];
   const hourlyWantedData = ['temperature', 'precipIntensity', 'precipProbability'];
   const hourlyResults = {
     summary: apiResponse.data.hourly.summary,
@@ -33,8 +33,8 @@ const processWeatherResults = (apiResponse) => {
 
 
   // Daily
-  const daily = [1, 2, 3, 4];
-  const dailyWantedData = ['summary', 'precipProbability', 'precipIntensity', 'temperatureHigh', 'temperatureLow'];
+  const daily = [1, 2, 3, 4, 5, 6, 7];
+  const dailyWantedData = ['temperatureHigh', 'temperatureLow', 'precipProbability', 'precipIntensity'];
   const dailyResults = {
     summary: apiResponse.data.daily.summary,
     data: {},
