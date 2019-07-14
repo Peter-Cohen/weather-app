@@ -20,7 +20,7 @@ router.post('/', (req, res) => {
     })
     .then((response) => {
       console.log(formattedAddress);
-      // console.log(response);
+      
       res.render('home.ejs', {
         results: response,
         status: `Showing results for ${formattedAddress}`,
