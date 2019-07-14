@@ -8,24 +8,19 @@
   <main class="container light-blue lighten-4">
     <div class="row">
       <div class="col s12">
-
         <h3>Hoi!</h3>
-        
       </div>
     </div>
 
+    <!-- Form -->
     <div class="row">
-    
       <form method="post" action="/" class="col s12">
         <p>Please enter a location:</p>
-        
         <div class="row">
-
           <div class="input-field col s9">
             <i class="material-icons prefix">search</i>
             <input id="search" type="search" name="search" required>
           </div>
-
           <div class="input-field col s3">
             <div class="btn waves-effect waves-light red">
               <i class="material-icons">delete</i>
@@ -34,11 +29,11 @@
               <i class="material-icons right">send</i>
             </button>
           </div>
-
         </div>
       </form>
     </div>
     
+    <!-- Status -->
     <div class="row">
       <div class="col s12" id="location-box">
         <div class = "card medium light-blue lighten-3">
@@ -53,21 +48,21 @@
       </div>
     </div>
 
+
     <% if (typeof results !== 'undefined') { %>
 
       <div class="row">
-      
+
+        <!-- Currently -->
         <div class = "col s12 l6">
           <div class = "card large light-blue lighten-3">      
             <div class = "card-content">
               
                 <span class="card-title">
                 Current, <%= results.currently.time %>
-                </span>
-                          
+                </span>         
                 <br><p><%= results.currently.summary %></p><br>
                 
-
                 <table>
                   <tbody>
                     <tr>
@@ -98,13 +93,17 @@
           </div>
         </div>
 
+        <!-- Next 24 hours -->
         <div class = "col s12 l6">
           <div class = "card large light-blue lighten-3">      
             <div class = "card-content">
               <span class="card-title">Next 24 hours</span>
-              <br>
+              <br><p><%= results.hourly.summary %></p><br>
               <table>
                 <tr>
+                  <% Object.keys(results.hourly).forEach(element => { %>
+                    <%= element %>
+                  <% }); %>
                   <th></th>
                   <th>+1</th>
                   <th>+3</th>
@@ -162,10 +161,13 @@
       </div>
 
       <div class="row">
+
+        <!-- Next week -->
         <div class = "col s12 l6">
           <div class = "card large light-blue lighten-3">      
             <div class = "card-content">
               <span class="card-title">Next week</span>
+              <br><p><%= results.daily.summary %> Do non occaecat incididunt nisi cillum sit cillum anim nostrud deserunt elit sunt officia.</p><br>
               
               <table>
                 <tr>
@@ -224,6 +226,7 @@
           </div>
         </div>
 
+        <!-- Map -->
         <div class = "col s12 l6">
           <div class = "card large light-blue lighten-5 hide-on-med-and-down">
             <div class = "card-content">
