@@ -19,7 +19,7 @@ const processWeatherResults = (apiResponse) => {
 
   // Hourly
   const whichHours = [1, 3, 6, 9, 12, 18, 24];
-  const hourlyWhichDataPoints = ['temperature', 'precipProbability', 'precipIntensity'];
+  // const hourlyWhichDataPoints = ['temperature', 'precipProbability', 'precipIntensity'];
   const hourlyResults = {
     summary: apiResponse.data.hourly.summary,
     data: {},
@@ -36,19 +36,18 @@ const processWeatherResults = (apiResponse) => {
     hourlyResults.data[e]['Precip chance'] = `${Math.round(apiResponse.data.hourly.data[e].precipProbability * 100 * 10) / 10}%`;
     hourlyResults.data[e]['Precipitation'] = `${Math.round(apiResponse.data.hourly.data[e].precipIntensity * 100) / 100}\u339c`;
     hourlyResults.data[e]['Precip type'] = apiResponse.data.hourly.data[e].precipType || '-';
-    
   });
 
 
   // Daily
-  const daily = [1, 2, 3, 4, 5, 6, 7];
-  const dailyWantedData = ['temperatureHigh', 'temperatureLow', 'precipProbability', 'precipIntensity'];
+  const whichDays = [1, 2, 3, 4, 5, 6, 7];
+  // const dailyWantedData = ['temperatureHigh', 'temperatureLow', 'precipProbability', 'precipIntensity'];
   const dailyResults = {
     summary: apiResponse.data.daily.summary,
     data: {},
   };
 
-  daily.forEach((e) => {
+  whichDays.forEach((e) => {
     dailyResults.data[e] = {};
     // dailyWantedData.forEach((f) => {
     //   dailyResults.data[e][f] = apiResponse.data.daily.data[e][f];
