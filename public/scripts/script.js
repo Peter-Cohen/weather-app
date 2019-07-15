@@ -12,7 +12,9 @@
 // https://materializecss.com/dropdown.html#initialization
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.dropdown-trigger');
+
   var instances = M.Dropdown.init(elems, { inDuration: 50 });
+
 });
 
 
