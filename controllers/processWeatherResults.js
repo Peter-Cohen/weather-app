@@ -26,9 +26,11 @@ const processWeatherResults = (apiResponse) => {
   whichHours.forEach((e) => {
     hourlyResults.data[e] = {};
 
-    hourlyResults.data[e].Temperature = `${Math.round(apiResponse.data.hourly.data[e].temperature * 10) / 10} \u2103`;
-    hourlyResults.data[e]['Precip chance'] = `${Math.round(apiResponse.data.hourly.data[e].precipProbability * 100 * 10) / 10}%`;
-    hourlyResults.data[e]['Precipitation'] = `${Math.round(apiResponse.data.hourly.data[e].precipIntensity * 100) / 100}\u339c`;
+    // `${Math.round(apiResponse.data.hourly.data[e].temperature * 10) / 10} \u2103`;
+
+    hourlyResults.data[e]['\u2103'] = (Math.round(apiResponse.data.hourly.data[e].temperature * 10)) / 10;
+    hourlyResults.data[e]['Precip %'] = Math.round(apiResponse.data.hourly.data[e].precipProbability * 100 * 10) / 10;
+    hourlyResults.data[e]['Precip \u339c'] = Math.round(apiResponse.data.hourly.data[e].precipIntensity * 100) / 100;
     hourlyResults.data[e]['Precip type'] = apiResponse.data.hourly.data[e].precipType || '-';
   });
 
@@ -49,13 +51,13 @@ const processWeatherResults = (apiResponse) => {
     dailyResults.data[e]['Day'] = formatToTimeZone(new Date(apiResponse.data.daily.data[e].time * 1000),
       'ddd', { timeZone: apiResponse.data.timezone });
 
-    dailyResults.data[e]['Temp max'] = `${Math.round(apiResponse.data.daily.data[e].temperatureHigh * 10) / 10} \u2103`;
+    dailyResults.data[e]['\u2103 max'] = Math.round(apiResponse.data.daily.data[e].temperatureHigh * 10) / 10;
 
-    dailyResults.data[e]['Temp min'] = `${Math.round(apiResponse.data.daily.data[e].temperatureLow * 10) / 10} \u2103`;
+    dailyResults.data[e]['\u2103 min'] = Math.round(apiResponse.data.daily.data[e].temperatureLow * 10) / 10;
 
-    dailyResults.data[e]['Precip chance'] = `${Math.round(apiResponse.data.daily.data[e].precipProbability * 100 * 10) / 10}%`;
+    dailyResults.data[e]['Precip %'] = Math.round(apiResponse.data.daily.data[e].precipProbability * 100 * 10) / 10;
 
-    dailyResults.data[e]['Precipitation'] = `${Math.round(apiResponse.data.daily.data[e].precipIntensity * 100) / 100}\u339c`;
+    dailyResults.data[e]['Precip \u339c'] = Math.round(apiResponse.data.daily.data[e].precipIntensity * 100) / 100;
     
     dailyResults.data[e]['Precip type'] = apiResponse.data.daily.data[e].precipType || '-';
   });
