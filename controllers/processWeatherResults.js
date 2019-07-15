@@ -28,7 +28,7 @@ const processWeatherResults = (apiResponse) => {
 
     // `${Math.round(apiResponse.data.hourly.data[e].temperature * 10) / 10} \u2103`;
 
-    hourlyResults.data[e]['\u2103'] = (Math.round(apiResponse.data.hourly.data[e].temperature * 10)) / 10;
+    hourlyResults.data[e]['Temp \u2103'] = (Math.round(apiResponse.data.hourly.data[e].temperature * 10)) / 10;
     hourlyResults.data[e]['Precip %'] = Math.round(apiResponse.data.hourly.data[e].precipProbability * 100 * 10) / 10;
     hourlyResults.data[e]['Precip \u339c'] = Math.round(apiResponse.data.hourly.data[e].precipIntensity * 100) / 100;
     hourlyResults.data[e]['Precip type'] = apiResponse.data.hourly.data[e].precipType || '-';
@@ -51,9 +51,9 @@ const processWeatherResults = (apiResponse) => {
     dailyResults.data[e]['Day'] = formatToTimeZone(new Date(apiResponse.data.daily.data[e].time * 1000),
       'ddd', { timeZone: apiResponse.data.timezone });
 
-    dailyResults.data[e]['\u2103 max'] = Math.round(apiResponse.data.daily.data[e].temperatureHigh * 10) / 10;
+    dailyResults.data[e]['Max \u2103'] = Math.round(apiResponse.data.daily.data[e].temperatureHigh * 10) / 10;
 
-    dailyResults.data[e]['\u2103 min'] = Math.round(apiResponse.data.daily.data[e].temperatureLow * 10) / 10;
+    dailyResults.data[e]['Min \u2103'] = Math.round(apiResponse.data.daily.data[e].temperatureLow * 10) / 10;
 
     dailyResults.data[e]['Precip %'] = Math.round(apiResponse.data.daily.data[e].precipProbability * 100 * 10) / 10;
 
