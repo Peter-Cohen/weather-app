@@ -51,6 +51,9 @@ const processWeatherResults = (apiResponse) => {
     // dailyWantedData.forEach((f) => {
     //   dailyResults.data[e][f] = apiResponse.data.daily.data[e][f];
     // });
+    dailyResults.data[e]['Day'] = formatToTimeZone(new Date(apiResponse.data.daily.data[e].time * 1000),
+      'ddd', { timeZone: apiResponse.data.timezone }),
+
     dailyResults.data[e]['Temp max'] = `${Math.round(apiResponse.data.daily.data[e].temperatureHigh * 10) / 10} \u2103`;
     dailyResults.data[e]['Temp min'] = `${Math.round(apiResponse.data.daily.data[e].temperatureLow * 10) / 10} \u2103`;
 
