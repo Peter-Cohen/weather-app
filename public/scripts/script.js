@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  let elems = document.querySelectorAll('.sidenav');
+  let elems = document.querySelectorAll('.dropdown-trigger');
   let instances = M.Sidenav.init(elems);
 });
 
