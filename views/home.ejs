@@ -66,23 +66,23 @@
                 <table>
                   <tbody>
                     <tr>
-                      <td>Current temperature</td>
+                      <th>Current temperature</th>
                       <td><%= results.currently.temperature %> </td>
                     </tr>
                     <tr>
-                      <td>Feels like</td>
+                      <th>Feels like</th>
                       <td><%= results.currently.apparentTemperature %> </td>
                     </tr>
                     <tr>
-                      <td>Humidity</td>
+                      <th>Humidity</th>
                       <td><%= results.currently.humidity %> </td>
                     </tr>
                     <tr>
-                      <td>UV</td>
+                      <th>UV</th>
                       <td><%= results.currently.uvIndex %></td>
                     </tr>
                     <tr>
-                      <td>Pressure</td>
+                      <th>Pressure</th>
                       <td><%= results.currently.pressure %> </td>
                     </tr>
                   </tbody>
@@ -134,16 +134,16 @@
         <div class = "col s12 l6">
           <div class = "card large light-blue lighten-3">      
             <div class = "card-content">
-              <span class="card-title">Next week</span>
+              <span class="card-title">Next 7 days</span>
               <br><p><%= results.daily.summary %></p><br>
               <table>
-                <!-- Top row of the table -->
+                <!-- Top row of the table
                 <tr>
                   <th></th>
                   <% Object.keys(results.daily.data).forEach(element => { %>
                     <th>+<%= element %></th>
                   <% }); %>                  
-                </tr>
+                </tr> -->
 
                 <!-- All other rows -->
                 <% Object.keys(results.daily.data[1]).forEach(element => { %>

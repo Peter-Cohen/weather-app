@@ -47,7 +47,7 @@ const processWeatherResults = (apiResponse) => {
     dailyResults.data[e] = {};
 
     dailyResults.data[e]['Day'] = formatToTimeZone(new Date(apiResponse.data.daily.data[e].time * 1000),
-      'ddd', { timeZone: apiResponse.data.timezone }),
+      'ddd', { timeZone: apiResponse.data.timezone });
 
     dailyResults.data[e]['Temp max'] = `${Math.round(apiResponse.data.daily.data[e].temperatureHigh * 10) / 10} \u2103`;
 
