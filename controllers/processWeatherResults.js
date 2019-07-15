@@ -34,7 +34,7 @@ const processWeatherResults = (apiResponse) => {
 
 
   // Daily
-  const whichDays = [1, 2, 3, 4, 5, 6, 7];
+  const whichDays = [1, 2, 3, 4, 5];
 
   const dailyResults = {
     summary: apiResponse.data.daily.summary,
