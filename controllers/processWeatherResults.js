@@ -1,13 +1,12 @@
-const { formatTime } = require('./formatTime');
-
+// const { formatTime } = require('./formatTime');
+const { formatToTimeZone } = require('date-fns-timezone');
 
 const processWeatherResults = (apiResponse) => {
   
   // Currently
   const currently = {
-    time: formatTime(apiResponse.data.timezone,
-      new Date(apiResponse.data.currently.time * 1000),
-      'dddd D MMMM YYYY, HH:mm'),
+    time: formatToTimeZone(new Date(apiResponse.data.currently.time * 1000),
+      'dddd D MMMM YYYY, HH:mm', { timeZone: apiResponse.data.timezone }),
     summary: apiResponse.data.currently.summary,
     temperature: `${apiResponse.data.currently.temperature} \u2103`,
     apparentTemperature: `${apiResponse.data.currently.apparentTemperature} \u2103`,
