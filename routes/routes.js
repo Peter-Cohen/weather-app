@@ -34,5 +34,13 @@ router.post('/', (req, res) => {
     });
 });
 
+router.get('/about', (req, res) => {
+  res.render('about.ejs');
+});
+
+
+router.get('/contact', (req, res) => {
+  res.render('contact.ejs');
+});
 
 module.exports = router;
