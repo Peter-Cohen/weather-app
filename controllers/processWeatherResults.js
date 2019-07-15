@@ -1,8 +1,7 @@
-// const { formatTime } = require('./formatTime');
 const { formatToTimeZone } = require('date-fns-timezone');
 
 const processWeatherResults = (apiResponse) => {
-  
+
   // Currently
   const currently = {
     time: formatToTimeZone(new Date(apiResponse.data.currently.time * 1000),
@@ -18,7 +17,7 @@ const processWeatherResults = (apiResponse) => {
 
   // Hourly
   const whichHours = [1, 3, 6, 9, 12, 18, 24];
-  // const hourlyWhichDataPoints = ['temperature', 'precipProbability', 'precipIntensity'];
+
   const hourlyResults = {
     summary: apiResponse.data.hourly.summary,
     data: {},
@@ -26,10 +25,6 @@ const processWeatherResults = (apiResponse) => {
 
   whichHours.forEach((e) => {
     hourlyResults.data[e] = {};
-    
-    // hourlyWhichDataPoints.forEach((f) => {
-    //   hourlyResults.data[e][f] = apiResponse.data.hourly.data[e][f];
-    // });
 
     hourlyResults.data[e].Temperature = `${Math.round(apiResponse.data.hourly.data[e].temperature * 10) / 10} \u2103`;
     hourlyResults.data[e]['Precip chance'] = `${Math.round(apiResponse.data.hourly.data[e].precipProbability * 100 * 10) / 10}%`;
@@ -40,25 +35,28 @@ const processWeatherResults = (apiResponse) => {
 
   // Daily
   const whichDays = [1, 2, 3, 4, 5, 6, 7];
-  // const dailyWantedData = ['temperatureHigh', 'temperatureLow', 'precipProbability', 'precipIntensity'];
+
   const dailyResults = {
     summary: apiResponse.data.daily.summary,
     data: {},
   };
 
   whichDays.forEach((e) => {
+    // convert the 'e', given DarkSky's timestamp to the weekday, and make weekday the key, 
+    //  instead of a number!!
     dailyResults.data[e] = {};
-    // dailyWantedData.forEach((f) => {
-    //   dailyResults.data[e][f] = apiResponse.data.daily.data[e][f];
-    // });
+
     dailyResults.data[e]['Day'] = formatToTimeZone(new Date(apiResponse.data.daily.data[e].time * 1000),
       'ddd', { timeZone: apiResponse.data.timezone }),
 
     dailyResults.data[e]['Temp max'] = `${Math.round(apiResponse.data.daily.data[e].temperatureHigh * 10) / 10} \u2103`;
+
     dailyResults.data[e]['Temp min'] = `${Math.round(apiResponse.data.daily.data[e].temperatureLow * 10) / 10} \u2103`;
 
     dailyResults.data[e]['Precip chance'] = `${Math.round(apiResponse.data.daily.data[e].precipProbability * 100 * 10) / 10}%`;
+
     dailyResults.data[e]['Precipitation'] = `${Math.round(apiResponse.data.daily.data[e].precipIntensity * 100) / 100}\u339c`;
+    
     dailyResults.data[e]['Precip type'] = apiResponse.data.daily.data[e].precipType || '-';
   });
 
@@ -68,18 +66,7 @@ const processWeatherResults = (apiResponse) => {
     daily: dailyResults,
   };
 
-  // console.log(JSON.stringify(obj, null, 2));
-
   return obj;
-
-  // const result = {};
-
-  // daily.forEach((e) => {
-  //   result[e] = {};
-  //   dailyWantedData.forEach((f) => {
-  //     result[e][f] = data.daily.data[e][f];
-  //   });
-  // });
 };
 
 
