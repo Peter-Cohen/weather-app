@@ -19,8 +19,6 @@ router.post('/', (req, res) => {
       return getWeather(response);
     })
     .then((response) => {
-      console.log(formattedAddress);
-      
       res.render('home.ejs', {
         results: response,
         status: `Showing results for ${formattedAddress}`,
@@ -34,6 +32,7 @@ router.post('/', (req, res) => {
     });
 });
 
+
 router.get('/about', (req, res) => {
   res.render('about.ejs');
 });
@@ -42,5 +41,6 @@ router.get('/about', (req, res) => {
 router.get('/contact', (req, res) => {
   res.render('contact.ejs');
 });
+
 
 module.exports = router;

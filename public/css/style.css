@@ -24,7 +24,7 @@ input:focus {
 }
 
 /*
-  Create some spacing
+  Create or adapt spacing:
 */
 .nav-wrapper {
   padding-left: 1vw;
@@ -41,6 +41,18 @@ footer {
   padding-right: 1vw;
 }
 
+.card {
+  margin: 0 .2rem 1rem .2rem;
+}
+
+#location-box{
+  margin-bottom: 0;
+}
+
+.row {
+  margin-bottom: 0;
+}
+
 
 /*
   Make button same height as the input field
@@ -53,6 +65,7 @@ footer {
 button {
   margin-left: 2px;
 }
+
 
 /*
   Make icon on submit button symmetric
@@ -71,25 +84,16 @@ i {
   overflow: hidden !important;
 }
 
-#location-box{
-  margin-bottom: 0;
-  
-}
 
-
-.card {
-  margin: 0 .2rem 1rem .2rem;
-  
-}
-.row {
-  margin-bottom: 0;
-}
-
+/* 
+  Enable scrolling if content too "high" for the card 
+*/
 .card-content {
   overflow-y: auto !important;
 }
 
 
+/* Don't use container on small screens */
 @media only screen and (max-width: 600px) {
   .container {
    width:100%
