@@ -1,29 +1,27 @@
-// document.addEventListener('DOMContentLoaded', () => {
-//   let elems = document.querySelectorAll('.dropdown-trigger');
-//   let instances = M.Sidenav.init(elems);
-// });
-
-// var dropdowns = document.querySelectorAll('.dropdown-trigger')
-// for (var i = 0; i < dropdowns.length; i++){
-// 	M.Dropdown.init(dropdowns[i]);
-// }
-
+/* eslint-disable no-unused-vars */
+/* eslint-disable prefer-arrow-callback */
+/* eslint-disable func-names */
+// Initialize dropdown menu
 // From Materialize docs
 // https://materializecss.com/dropdown.html#initialization
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.dropdown-trigger');
-
-  var instances = M.Dropdown.init(elems);
-
+document.addEventListener('DOMContentLoaded', function () {
+  const elems = document.querySelectorAll('.dropdown-trigger');
+  const instances = M.Dropdown.init(elems);
 });
 
 
+// Clear input field
+const clearField = (e) => {
+  console.log('Clear field');
+  document.querySelector('#search').value = '';
+};
+
+// Submit form
+const submit = (e) => {
+  console.log('Submit');
+};
 
 
-
-
-
-
-
-
-// M.AutoInit();
+// Load event listeners
+document.querySelector('#delete-btn').addEventListener('click', clearField);
+document.querySelector('#submit-btn').addEventListener('click', submit);
