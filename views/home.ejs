@@ -14,7 +14,8 @@
 
     <!-- Form -->
     <div class="row">
-      <form method="post" action="/" class="col s12">
+      <%# <form method="post" action="/" class="col s12"> %>
+      <form method="post" class="col s12">
         <p>Please enter a location:</p>
         <div class="row">
           <div class="input-field col s9">
@@ -22,10 +23,11 @@
             <input id="search" type="search" name="search" required>
           </div>
           <div class="input-field col s3">
-            <div class="btn waves-effect waves-light red">
+            <div id="delete-btn" class="btn waves-effect waves-light red">
               <i class="material-icons">delete</i>
             </div>
-            <button class="btn waves-effect waves-light light-blue" type="submit">
+            <%# <button id="submit-btn" class="btn waves-effect waves-light light-blue" type="submit"> %>
+            <button id="submit-btn" class="btn waves-effect waves-light light-blue">
               <i class="material-icons right">send</i>
             </button>
           </div>
@@ -50,7 +52,6 @@
 
 
     <% if (typeof results !== 'undefined') { %>
-
       <div class="row">
         <!-- Currently -->
         <div class = "col s12 l6">
