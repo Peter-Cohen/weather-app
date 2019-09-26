@@ -6,6 +6,10 @@ const getGeoCodeCoords = (rawLocation) => {
   const encodedAddress = encodeURIComponent(rawLocation);
   const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${mapsKey}`;
 
+  console.log('in getGeoCoord, raw location = ', rawLocation);           //////////
+  console.log('in getGeoCoord, encodedAddress = ', encodedAddress);      //////////
+  console.log('in getGeoCoord, url', url);                               //////////
+
   return axios.get(url)
     .then(response => ({
       address: response.data.results[0].formatted_address,
