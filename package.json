@@ -20,6 +20,6 @@
     "ejs": "^2.6.2",
     "express": "^4.17.1",
     "timezone-support": "^2.0.2",
-    "lodash": ">=4.17.13"
+    "lodash": ">=4.17.21"
   }
 }
